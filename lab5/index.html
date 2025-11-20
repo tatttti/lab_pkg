@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритмы отсечения отрезков и многоугольников</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Алгоритмы отсечения отрезков и многоугольников</h1>
+            <p class="description">
+                Визуализация алгоритмов отсечения отрезков (алгоритм средней точки) 
+                и выпуклых многоугольников (алгоритм отсечения выпуклого многоугольника).
+            </p>
+        </header>
+
+        <section class="section">
+            <h2>Алгоритм средней точки</h2>
+            
+            <div class="canvas-card">
+                <div class="canvas-container">
+                    <canvas id="canvasSeg"></canvas>
+                </div>
+                
+                <div class="status-bar">
+                    <span id="statusSeg">Готов к работе</span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="input-group">
+                    <label for="fileSegments">Загрузить данные из файла:</label>
+                    <input type="file" id="fileSegments" class="file-input" accept=".txt">
+                    <label for="fileSegments" class="file-label">📁 Выбрать файл</label>
+                </div>
+                
+                <div class="input-group">
+                    <label for="inputSegments">Координаты отрезков и окна:</label>
+                    <textarea id="inputSegments" placeholder="Введите данные в формате:
+4
+3 5 7 7
+1 1 4 4
+6 0 6 8
+2 2 8 6
+2 2 6 6"></textarea>
+                    <div class="hint">Формат: количество отрезков, затем координаты отрезков (x1 y1 x2 y2), затем координаты окна (xmin ymin xmax ymax)</div>
+                </div>
+                
+                <div class="input-group">
+                    <button id="processSegments">Выполнить отсечение</button>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #0ea5e9;"></div>
+                    <span>Отсекающее окно</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #8b5cf6;"></div>
+                    <span>Исходные отрезки</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #16a34a;"></div>
+                    <span>Видимые части</span>
+                </div>
+            </div>
+            
+            <div class="algorithm-info">
+                <p><strong>Алгоритм средней точки</strong> использует метод деления отрезка пополам для определения видимой части.</p>
+                <p class="hint" style="margin-top: 10px;">Используйте колесо мыши для масштабирования и перетаскивание для перемещения по холсту.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Алгоритм отсечения выпуклого многоугольника</h2>
+            
+            <div class="canvas-card">
+                <div class="canvas-container">
+                    <canvas id="canvasPoly"></canvas>
+                </div>
+                
+                <div class="status-bar">
+                    <span id="statusPoly">Готов к работе</span>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="input-group">
+                    <label for="filePolygon">Загрузить данные из файла:</label>
+                    <input type="file" id="filePolygon" class="file-input" accept=".txt">
+                    <label for="filePolygon" class="file-label">📁 Выбрать файл</label>
+                </div>
+                
+                <div class="input-group">
+                    <label for="inputPolygon">Координаты многоугольника и отсекателя:</label>
+                    <textarea id="inputPolygon" placeholder="Введите данные в формате:
+6
+-8 0
+-4 6
+2 8
+6 4
+4 -4
+-2 -6
+5
+-5 -5
+5 -5
+8 2
+0 8
+-8 2"></textarea>
+                    <div class="hint">Формат: количество вершин многоугольника, затем координаты вершин (x y), затем количество вершин отсекателя, затем координаты вершин отсекателя (x y)</div>
+                </div>
+                
+                <div class="input-group">
+                    <button id="processPolygon">Выполнить отсечение</button>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #0ea5e9;"></div>
+                    <span>Отсекающий многоугольник</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #fb923c;"></div>
+                    <span>Исходный многоугольник</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #16a34a;"></div>
+                    <span>Результат отсечения</span>
+                </div>
+            </div>
+            
+            <div class="algorithm-info">
+                <p><strong>Алгоритм отсечения выпуклого многоугольника</strong> использует алгоритм Сазерленда-Ходжмана для отсечения произвольным выпуклым многоугольником.</p>
+                <p class="hint" style="margin-top: 10px;">Используйте колесо мыши для масштабирования и перетаскивание для перемещения по холсту.</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Головкова Татьяна, 2025</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
