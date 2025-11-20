@@ -25,26 +25,38 @@
 
 Формат входных данных для алгоритма средней точки:
 n
+
 X1_1 Y1_1 X2_1 Y2_1
+
 X1_2 Y1_2 X2_2 Y2_2
+
 ...
 X1_n Y1_n X2_n Y2_n
+
 Xmin Ymin Xmax Ymax
 
 Формат входных данных для отсечение выпуклого многоугольника произвольным выпуклым отсекателем:
 m
+
 X1 Y1
+
 X2 Y2
+
 ...
+
 Xm Ym
+
 k
+
 CX1 CY1
+
 CX2 CY2
+
 ...
+
 CXk CYk
 
-Docker:
-docker run -d -p 8080:80 tatttti/clipping-algorithms:latest
+Docker: docker run -d -p 8080:80 tatttti/clipping-algorithms:latest
 Then open: http://localhost:8080
 
     
